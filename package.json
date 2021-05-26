@@ -1,0 +1,23 @@
+{
+  "name": "gameofthronesapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guvitorino/GameOfThronesAPI.git"
+  },
+  "keywords": [
+    "GameOfThrones",
+    "API"
+  ],
+  "author": "Gustavo Vitorino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guvitorino/GameOfThronesAPI/issues"
+  },
+  "homepage": "https://github.com/guvitorino/GameOfThronesAPI#readme"
+}
