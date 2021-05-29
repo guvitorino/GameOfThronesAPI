@@ -22,6 +22,19 @@ class HousesController {
       return res.status(500).json({ error: 'failed to create Lord' })
     }
   }
+
+  static async search (req, res) {
+    try {
+      const { name, id } = req.query
+
+      const house = await service.search(name, id)
+
+      return res.status(200).json(house)
+    } catch (err) {
+      console.log(err)
+      return res.status(500).json({ error: 'failed to get House' })
+    }
+  }
 }
 
 module.exports = HousesController

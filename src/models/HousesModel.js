@@ -12,6 +12,10 @@ class HousesModel {
   async list () {
     return connection(this.collection).select()
   }
+
+  async getByField (field, value) {
+    return connection(this.collection).first('*').where(field, value)
+  }
 }
 
 module.exports = new HousesModel()

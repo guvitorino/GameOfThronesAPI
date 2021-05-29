@@ -3,7 +3,14 @@ const { celebrate, Segments, Joi } = require('celebrate')
 
 const HousesController = require('../controllers/HousesController')
 
-routes.get('/', HousesController.show)
+routes.get('/list', HousesController.show)
+
+routes.get('/search', celebrate({
+  [Segments.QUERY]: Joi.object().keys({
+    name: Joi.string(),
+    id: Joi.string().uuid()
+  })
+}), HousesController.search)
 
 routes.post('/', celebrate({
   [Segments.BODY]: Joi.object().keys({

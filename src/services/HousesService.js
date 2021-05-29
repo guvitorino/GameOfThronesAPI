@@ -8,6 +8,12 @@ class HousesService {
   static async list () {
     return HousesModel.list()
   }
+
+  static async search (name, id) {
+    return typeof name !== 'undefined'
+      ? HousesModel.getByField('name', name)
+      : HousesModel.getByField('id', id)
+  }
 }
 
 module.exports = HousesService
