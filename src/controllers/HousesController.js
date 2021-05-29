@@ -2,9 +2,13 @@
 const service = require('../services/HousesService')
 class HousesController {
   static async show (req, res) {
-    return res.status(200).json({
-      ok: true
-    })
+    try {
+      const houses = await service.list()
+
+      return res.status(200).json(houses)
+    } catch (err) {
+      return res.status(500).json({ error: 'failed to list houses' })
+    }
   }
 
   static async create (req, res) {

@@ -8,6 +8,10 @@ class HousesModel {
   async create (house) {
     return connection(this.collection).insert(house).returning('*')
   }
+
+  async list () {
+    return connection(this.collection).select()
+  }
 }
 
 module.exports = new HousesModel()
