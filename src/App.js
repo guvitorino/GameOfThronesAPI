@@ -1,5 +1,7 @@
 require('dotenv').config()
 const express = require('express')
+const { errors } = require('celebrate')
+
 const routes = require('../src/routes/Index')
 
 class App {
@@ -16,6 +18,7 @@ class App {
 
   routes () {
     this.server.use(routes)
+    this.server.use(errors())
   }
 }
 
