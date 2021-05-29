@@ -21,4 +21,10 @@ routes.post('/', celebrate({
   })
 }), HousesController.create)
 
+routes.put('/:id', celebrate({
+  [Segments.PARAMS]: Joi.object().keys({
+    id: Joi.string().uuid()
+  })
+}), HousesController.delete)
+
 module.exports = routes

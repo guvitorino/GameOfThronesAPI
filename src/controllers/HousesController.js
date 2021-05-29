@@ -35,6 +35,27 @@ class HousesController {
       return res.status(500).json({ error: 'failed to get House' })
     }
   }
+
+  static async delete (req, res) {
+    try {
+      const { id } = req.params
+
+      const house = await service.search(undefined, id)
+
+      if (!house) {
+        return res.status(400).json({
+          error: 'House not found'
+        })
+      }
+
+      await service.delete(id)
+
+      return res.status(204).send()
+    } catch (err) {
+      console.log(err)
+      return res.status(500).json({ error: 'failed to delete House' })
+    }
+  }
 }
 
 module.exports = HousesController

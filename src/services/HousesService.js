@@ -14,6 +14,10 @@ class HousesService {
       ? HousesModel.getByField('name', name)
       : HousesModel.getByField('id', id)
   }
+
+  static async delete (id) {
+    return HousesModel.delete(id)
+  }
 }
 
 module.exports = HousesService
