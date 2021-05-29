@@ -1,5 +1,6 @@
 const routes = require('express').Router()
 const { celebrate, Segments, Joi } = require('celebrate')
+
 const LordsController = require('../controllers/LordsController')
 
 routes.get('/', LordsController.show)
