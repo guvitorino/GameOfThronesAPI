@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node src/Serves.js",
     "dev": "nodemon src/Server.js",
     "test": "jest --collect-coverage --detectOpenHandles"
   },
