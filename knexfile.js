@@ -1,4 +1,5 @@
 require('dotenv/config')
+const config = process.env.NODE_ENV ? require('./test-db.json') : {}
 
 module.exports = {
 
@@ -12,6 +13,24 @@ module.exports = {
     },
     migrations: {
       directory: './src/database/migrations'
+    },
+    seeds: {
+      directory: './src/database/seeds'
+    }
+  },
+  test: {
+    client: 'pg',
+    connection: {
+      host: config.PG_IP,
+      user: 'test',
+      password: 'test',
+      database: 'postgres'
+    },
+    migrations: {
+      directory: './src/database/migrations'
+    },
+    seeds: {
+      directory: './src/database/seeds'
     }
   },
   production: {

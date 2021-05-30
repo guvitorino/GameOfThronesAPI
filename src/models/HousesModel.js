@@ -18,7 +18,6 @@ class HousesModel {
   }
 
   async delete (id) {
-    console.log(id)
     return connection(this.collection).where('id', id).delete()
   }
 }
