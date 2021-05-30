@@ -19,7 +19,7 @@ class HousesController {
 
       return res.status(201).json(house)
     } catch (err) {
-      return res.status(500).json({ error: 'failed to create Lord' })
+      return res.status(500).json({ error: 'failed to create House' })
     }
   }
 
