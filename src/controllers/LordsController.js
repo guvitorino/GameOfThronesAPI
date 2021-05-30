@@ -1,5 +1,5 @@
 const service = require('../services/LordsService')
-
+const logger = require('../config/Logger')
 class LordsController {
   static async show (req, res) {
     const data = await service.get()
@@ -12,6 +12,7 @@ class LordsController {
       const lord = await service.save({ name, seasons })
       return res.status(201).json(lord)
     } catch (err) {
+      logger.error(`Method: create; Class: LordsController; ${err}`)
       return res.status(500).json({ error: 'failed to create Lord' })
     }
   }

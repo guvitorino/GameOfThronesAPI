@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 const service = require('../services/HousesService')
+const logger = require('../config/Logger')
 class HousesController {
   static async show (req, res) {
     try {
@@ -7,6 +8,7 @@ class HousesController {
 
       return res.status(200).json(houses)
     } catch (err) {
+      logger.error(`Method: show; Class: HousesController; ${err}`)
       return res.status(500).json({ error: 'failed to list houses' })
     }
   }
@@ -19,6 +21,7 @@ class HousesController {
 
       return res.status(201).json(house)
     } catch (err) {
+      logger.error(`Method: create; Class: HousesController; ${err}`)
       return res.status(500).json({ error: 'failed to create House' })
     }
   }
@@ -31,7 +34,7 @@ class HousesController {
 
       return res.status(200).json(house)
     } catch (err) {
-      console.log(err)
+      logger.error(`Method: search; Class: HousesController; ${err}`)
       return res.status(500).json({ error: 'failed to get House' })
     }
   }
@@ -52,7 +55,7 @@ class HousesController {
 
       return res.status(204).send()
     } catch (err) {
-      console.log(err)
+      logger.error(`Method: delete; Class: HousesController; ${err}`)
       return res.status(500).json({ error: 'failed to delete House' })
     }
   }
